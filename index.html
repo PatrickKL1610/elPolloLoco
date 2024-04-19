@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html translate="no">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>El Pollo Loco</title>
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/vnd.icon" href="./img/3_enemies_chicken/chicken_normal/1_walk/1_w.png">
+    <link rel="stylesheet" href="style.css" />
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="0b6ce370-c14a-4762-af50-ae064ba1fd4e"
+        data-blockingmode="auto" type="text/javascript"></script>
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/0b6ce370-c14a-4762-af50-ae064ba1fd4e/cd.js"
+        type="text/javascript" async></script>
+    <script src="models/world.class.js"></script>
+    <script src="models/drawable-object.class.js"></script>
+    <script src="models/movable-object.class.js"></script>
+    <script src="models/keyboard.class.js"></script>
+    <script src="models/status-bar.class.js"></script>
+    <script src="models/endboss-status-bar-hearts.class.js"></script>
+    <script src="models/endboss-status-bar.class.js"></script>
+    <script src="models/coin-status-bar.class.js"></script>
+    <script src="models/bottle-status-bar.class.js"></script>
+    <script src="models/cloud.class.js"></script>
+    <script src="models/throwable-object.class.js"></script>
+    <script src="models/baby-chicken.class.js"></script>
+    <script src="models/character.class.js"></script>
+    <script src="models/chicken.class.js"></script>
+    <script src="models/coin.class.js"></script>
+    <script src="models/bottle.class.js"></script>
+    <script src="models/endboss.class.js"></script>
+    <script src="models/background-object.class.js"></script>
+    <script src="models/level.class.js"></script>
+    <script src="levels/level1.js"></script>
+    <script src="js/game.js"></script>
+</head>
+
+<body id="content">
+    <h1>El Pollo Loco</h1>
+    <div class="rotate"><img src="./img/10_icons/rotate.gif" alt="" srcset=""></div>
+
+    <div class="gameDisplayArea" id="fullscreen">
+        <div class="buttonContainerLeft d-none" id="buttonsLeft">
+            <button onmousedown="simulateKeyPressed(37,'keydown')" onmouseup="simulateKeyPressed(37,'keyup')"
+                ontouchstart="simulateKeyPressed(37,'keydown')" ontouchend="simulateKeyPressed(37,'keyup')"><i
+                    class="fa fa-arrow-left" aria-hidden="true"></i></button>
+            <button onmousedown="simulateKeyPressed(32,'keydown')" onmouseup="simulateKeyPressed(32,'keyup')"
+                ontouchstart="simulateKeyPressed(32,'keydown')" ontouchend="simulateKeyPressed(32,'keyup')">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+        </div>
+        <div class="centralLayout">
+            <div class="initialScreen" id="startScreen">
+                <button class="menuButton" onclick="startGame()">START GAME</button>
+                <button class="menuButton" onclick="openHowToPlay()">HOW TO PLAY</button>
+                <div onclick="closeHowToPlay()" id="mainHTP" class="instructionBackdrop d-none">
+                    <div class="gameInstructions">
+                        <p>Move: 'A' or Left Arrow (left), 'D' or Right Arrow (right)</p>
+                        <p>Jump: Spacebar</p>
+                        <p>Throw Bottle: Enter</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gameOverDisplay d-none" id="gameOverScreen">
+                <button class="menuButton" onclick="backToStartScreen()">MAIN MENU</button>
+            </div>
+            <div class="victoryScreen d-none" id="gameWinnerScreen">
+                <h2>YOU ARE THE CHICKEN BOSS</h2>
+                <button class="menuButton" onclick="backToStartScreen()">MAIN MENU</button>
+            </div>
+            <img id="muteButton" class="soundControlIcon d-none" src="./img/10_icons/unmute.png" onclick="muteGame()" />
+            <img id="unMuteButton" class="soundControlIcon d-none" src="./img/10_icons/mute.png"
+                onclick="unMuteGame()" />
+            <canvas id="canvas" class="d-none" width="720" height="480"></canvas>
+        </div>
+        <div class="buttonContainerRight d-none" id="buttonsRight">
+            <button onmousedown="simulateKeyPressed(39,'keydown')" onmouseup="simulateKeyPressed(39,'keyup')"
+                ontouchstart="simulateKeyPressed(39,'keydown')" ontouchend="simulateKeyPressed(39,'keyup')"><i
+                    class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            <button onmousedown="simulateKeyPressed(13,'keydown')" onmouseup="simulateKeyPressed(13,'keyup')"
+                ontouchstart="simulateKeyPressed(13,'keydown')" ontouchend="simulateKeyPressed(13,'keyup')"><i
+                    class="fa fa-beer" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <div class="imreDatContainer">
+        <button class="menuButton imreDat" onclick="location.href='./impressum.html'">IMPRESSUM</button>
+    </div>
+
+</body>
+
+</html>

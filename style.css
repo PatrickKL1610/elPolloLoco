@@ -1,0 +1,506 @@
+@font-face {
+    font-family: 'MexicanFiesta';
+    src: url('./fonts/mexicanfiesta.ttf') format('truetype');
+}
+
+body {
+    font-family: 'MexicanFiesta';
+    color: #fcfae9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('img/5_background/second_half_background.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    caret-color: transparent;
+}
+
+.imreDatContainer {
+    display: flex;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 70px;
+    letter-spacing: 8px;
+}
+
+canvas {
+    display: block;
+    background-color: black;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+.centralLayout {
+    display: flex;
+    justify-content: center;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.rotate {
+    display: none;
+    position: absolute;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.initialScreen {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    background-size: 100% 100%;
+    background-image: url('img/9_intro_outro_screens/start/startscreen_1.png');
+    width: 720px;
+    height: 480px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+#muteButton,
+#endMuteButton {
+    padding-top: 12px;
+    height: 30px;
+}
+
+.menuButton {
+    font-family: 'MexicanFiesta';
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    border-radius: 9px;
+    letter-spacing: 3px;
+    font-size: 32px;
+    margin: 10px;
+    background-color: #ffaf1a;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, font-size 0.3s ease;
+}
+
+.menuButton:hover {
+    font-size: 34px;
+    background-color: #ffaf1a;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(207, 202, 202, 0.2);
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+}
+
+
+.gameOverDisplay {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    background-size: contain;
+    background-image: url('img/9_intro_outro_screens/game_over/game over.png');
+    width: 720px;
+    height: 480px;
+    background-position: center right;
+    border-radius: 20px;
+}
+
+.victoryScreen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');
+    width: 720px;
+    height: 480px;
+    background-position: center right;
+}
+
+.victoryScreen h2 {
+    font-size: 25px;
+    color: #000000;
+    letter-spacing: 8px;
+}
+
+.gameDisplayArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+
+.gameDisplayArea img {
+    max-width: 40px;
+    position: absolute;
+    z-index: 3;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.screenSizeModeIcon {
+    margin-left: -150px;
+}
+
+
+.soundControlIcon {
+    margin-right: 180px;
+}
+
+
+.buttonContainerLeft {
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.buttonContainerRight {
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.buttonContainerLeft button {
+    height: 100px;
+    box-shadow: inset 0px 1px 0px 0px #6666661f;
+    background: #faf9f31f;
+    background-color: #ffa6004d;
+    border-radius: 6px;
+    border: 1px solid #ffffff3b;
+    cursor: pointer;
+    padding: 6px 12px;
+    margin-top: 10px;
+}
+
+.buttonContainerRight button {
+    height: 100px;
+    box-shadow: inset 0px 1px 0px 0px #6666661f;
+    background: #faf9f31f;
+    background-color: #ffa6004d;
+    border-radius: 6px;
+    border: 1px solid #ffffff3b;
+    cursor: pointer;
+    padding: 6px 12px;
+    margin-top: 10px;
+}
+
+.buttonContainerRight button:hover {
+    background-color: #ffbf402a;
+}
+
+.buttonContainerLeft button:hover {
+    background-color: #ffbf402a;
+}
+
+.buttonContainerRight button:active {
+    position: relative;
+    top: 1px;
+}
+
+.buttonContainerRight i {
+    font-size: 30px;
+}
+
+.buttonContainerLeft button:active {
+    position: relative;
+    top: 1px;
+}
+
+.buttonContainerLeft i {
+    font-size: 30px;
+}
+
+.gameInstructions {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    background: rgba(255, 190, 64, 0.5);
+    width: 500px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    letter-spacing: 1px;
+    padding: 20px 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.instructionBackdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    z-index: 3;
+}
+
+.top-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.top-right:hover {
+    font-size: 26px;
+}
+
+
+
+@media only screen and (max-height: 700px) {
+    h1 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    body {
+        justify-content: center;
+    }
+
+    .imreDatContainer {
+        display: none;
+    }
+
+    #canvas {
+        width: calc(100vw - (2 * 70px));
+    }
+
+    .initialScreen {
+        width: calc(100vw - (2 * 70px));
+        height: 400px;
+    }
+
+    .gameOverDisplay {
+        width: calc(100vw - (2 * 70px));
+        height: 400px;
+    }
+
+    .victoryScreen {
+        width: calc(100vw - (2 * 70px));
+        height: 400px;
+    }
+
+    .buttonContainerLeft {
+        display: flex;
+    }
+
+    .buttonContainerRight {
+        display: flex;
+    }
+
+    h1 {
+        font-size: 50px;
+        margin-top: 80px;
+    }
+
+    .rotate img {
+        width: 100%;
+    }
+
+    .how-to-play {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .initialScreen {
+        width: calc(100vw - (2 * 70px));
+        height: 290px;
+    }
+
+    .gameOverDisplay {
+        width: calc(100vw - (2 * 70px));
+        height: 300px;
+    }
+
+    .victoryScreen h2 {
+        font-size: 30px;
+    }
+
+    .victoryScreen {
+        width: calc(100vw - (2 * 70px));
+        height: 290px;
+    }
+
+    .buttonContainerLeft button {
+        height: 80px;
+    }
+
+    .buttonContainerRight button {
+        height: 80px;
+    }
+
+    .btn-style {
+        width: 150px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 35px;
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .initialScreen {
+        width: 100vw;
+        height: 150px;
+    }
+
+    .gameOverDisplay {
+        width: 100vw;
+        height: 200px;
+    }
+
+    .victoryScreen h2 {
+        font-size: 16px;
+    }
+
+    .victoryScreen {
+        width: 100vw;
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    .muteIcon {
+        width: 16px;
+        margin-right: 20px;
+    }
+
+    .fullscreenIcon {
+        width: 16px;
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .buttonContainer button {
+        margin-top: 2px;
+    }
+
+    .buttonContainer i {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .victoryScreen h2 {
+        font-size: 12px;
+    }
+
+    .btn-style {
+        width: 80px;
+    }
+}
+
+@media (max-height: 500px) {
+    .buttonContainerLeft {
+        display: flex;
+    }
+
+    .buttonContainerRight {
+        display: flex;
+    }
+
+    .initialScreen {
+        width: 100vw;
+        height: 100vh;
+        background-position: center;
+    }
+
+    .gameOverDisplay {
+        width: 100vw;
+        height: 100vh;
+        background-position: center;
+    }
+
+    .victoryScreen h2 {
+        font-size: 16px;
+    }
+
+    .victoryScreen {
+        width: 100vw;
+        height: 100vh;
+        background-position: center;
+    }
+
+    #canvas {
+        height: calc(100vh - (2 * 2px));
+    }
+}
+
+@media (min-height: 610px) and (max-height: 915px) and (min-width: 200px) and (max-width: 750px) {
+    .buttonContainerLeft {
+        display: none;
+    }
+
+    .buttonContainerRight {
+        display: none;
+    }
+
+    .buttonContainerRight {
+        display: none;
+    }
+
+    .rotate {
+        z-index: 5;
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+
+
+.impressumContainer {
+    overflow: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 70vh;
+    width: 70vw;
+    background-color: #FFA400;
+    border-radius: 25px;
+    color: black;
+    font-family: sans-serif;
+    padding: 10px;
+}
